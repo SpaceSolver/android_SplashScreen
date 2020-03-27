@@ -43,11 +43,29 @@ Splash.java
  Splash.java  
  
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {  
+        if (keyCode == KeyEvent.KEYCODE_BACK) {  
+            return false;  
+        }  
+        return super.onKeyDown(keyCode, event);  
+    }  
 
- 
+## アニメーション対応
+表示する画像をフェードインさせる。  
+res/anim/alpha_fadein.xml  
+
+    <?xml version="1.0" encoding="utf-8"?>  
+    <alpha xmlns:android="http://schemas.android.com/apk/res/android"  
+      android:interpolator="@android:anim/decelerate_interpolator"  
+      android:fromAlpha="0.0"  
+      android:toAlpha="1.0"  
+      android:fillAfter="true"  
+      android:duration="3000"  
+    />  
+
+ Splash.java    
+        
+    // 画像フェードイン  
+    Animation animation= AnimationUtils.loadAnimation(this, R.anim.alpha_fadein);  
+    imageView.startAnimation(animation);  
+    
