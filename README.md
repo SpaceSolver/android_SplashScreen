@@ -65,6 +65,10 @@ res/anim/alpha_fadein.xml
 
  Splash.java    
         
+    import android.view.animation.Animation;
+    import android.view.animation.AnimationUtils;
+    import android.widget.ImageView;    
+
     // 画像フェードイン  
     Animation animation= AnimationUtils.loadAnimation(this, R.anim.alpha_fadein);  
     imageView.startAnimation(animation);  
