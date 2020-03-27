@@ -5,15 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity
 {
+
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        // タイトルを非表示にします。
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
+
+        imageView = findViewById(R.id.splashImg);
+        // 画像フェードイン
+        Animation animation= AnimationUtils.loadAnimation(this, R.anim.alpha_fadein);
+        imageView.startAnimation(animation);
+        // 画像フェードアウト
+        //Animation animation2= AnimationUtils.loadAnimation(this, R.anim.alpha_fadeout);
+        //imageView.startAnimation(animation2);
 
         // 2秒したらMainActivityを呼び出してSplashActivityを終了する
         Handler handler = new Handler();
@@ -30,6 +46,7 @@ public class Splash extends AppCompatActivity
                 // SplashActivityを終了する
                 Splash.this.finish();
             }
-        }, 2 * 1000); // 2000ミリ秒後（2秒後）に実行
+        }, 4 * 1000); // 2000ミリ秒後（2秒後）に実行
     }
+
 }
