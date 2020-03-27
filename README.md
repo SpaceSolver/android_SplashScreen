@@ -57,10 +57,10 @@ res/anim/alpha_fadein.xml
     <?xml version="1.0" encoding="utf-8"?>  
     <alpha xmlns:android="http://schemas.android.com/apk/res/android"  
       android:interpolator="@android:anim/decelerate_interpolator"  
-      android:fromAlpha="0.0"  
-      android:toAlpha="1.0"  
-      android:fillAfter="true"  
-      android:duration="3000"  
+      android:fromAlpha="0.0"  ←アニメーション開始時のalpha値  
+      android:toAlpha="1.0"  　←アニメーション終了時のalpha値  
+      android:fillAfter="true" ←アニメーション終了時にviewをそのまま残す(true)   
+      android:duration="3000"  ←アニメーションの期間[msec]  
     />  
 
  Splash.java    
