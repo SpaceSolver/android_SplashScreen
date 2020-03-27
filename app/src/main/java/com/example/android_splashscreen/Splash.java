@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity
 {
-
     private ImageView imageView;
 
     @Override
@@ -21,8 +21,11 @@ public class Splash extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         // タイトルを非表示にします。
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
+
+        //通知領域の非表示
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         imageView = findViewById(R.id.splashImg);
         // 画像フェードイン
